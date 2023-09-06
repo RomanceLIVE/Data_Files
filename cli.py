@@ -1200,7 +1200,8 @@ else:
 
 # Ex 33 Module
 
-from functions import get_todos, write_todos
+import functions
+import time
 # method recommended when u have few functions
 
 # if we use "import functions"
@@ -1219,19 +1220,19 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:]
 
-        todos = get_todos()
+        todos = functions.get_todos()
         # now we remove todos.txt
         # because we added it inside the function def as a default argument
 
         todos.append(todo + '\n')
 
         # Now we write write_todos(todos, "todos.txt") as below :
-        write_todos(todos)
+        functions.write_todos(todos)
         # because the file is predefined so just mention the list
 
     elif user_action.startswith("show"):
 
-        todos = get_todos()
+        todos = functions.get_todos()
 
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -1242,12 +1243,12 @@ while True:
             number = int(user_action[5:])
             print(number)
             number = number - 1
-            todos = get_todos()
+            todos = functions.get_todos()
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + '\n'
 
-            write_todos(todos)
+            functions.write_todos(todos)
         except ValueError:
 
             print("Your command is not valid.")
@@ -1256,12 +1257,12 @@ while True:
     elif user_action.startswith("complete"):
         try:
             number = int(user_action[9:])
-            todos = get_todos()
+            todos = functions.get_todos()
             index = number - 1
             todo_to_remove = todos[index].strip('\n')
             todos.pop(index)
 
-            write_todos(todos)
+            functions.write_todos(todos)
             message = f"Todo {todo_to_remove} was removed from the list."
             print(message)
         except (IndexError, ValueError):
@@ -1272,5 +1273,8 @@ while True:
     else:
         print("Command is not valid !")
 print("Thanks,bye !")
+
+# Setting the app
+#we can install packages with terminal command
 
 

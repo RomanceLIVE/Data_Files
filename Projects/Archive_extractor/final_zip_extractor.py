@@ -6,8 +6,8 @@ def extract_archive(archivepath, dest_dir):
 
 #testing app
 if __name__ == "__main__":
-    archive_path = r"C:\Users\Robert\PycharmProjects\pythonProject\Projects\File_compressor\compressed.zip"
-    dest_dir = r"C:\Users\Robert\PycharmProjects\pythonProject\Projects\File_compressor"
+    archive_path = r"/Projects/File_compressor/compressed.zip"
+    dest_dir = r"/Projects/File_compressor"
 
     extract_archive(archive_path, dest_dir)
 
